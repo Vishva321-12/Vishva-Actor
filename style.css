@@ -13,10 +13,8 @@ body{
 
 }
 #header{
-    width: 97%;
-    height: 100vh;
-    background-image: url(background.jpeg);
-    background-size: 2000px 100;
+    object-fit:contain;
+    background-size: 200px 100;
     background-position:center;
 }
 .containe{
