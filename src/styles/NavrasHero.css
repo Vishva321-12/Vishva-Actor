@@ -1,0 +1,558 @@
+/* ============================================
+   NAVRAS HERO SECTION - CSS ANIMATIONS
+   ============================================ */
+
+:root {
+  --navras-black: #0A0A0A;
+  --navras-charcoal: #1A1A1A;
+  --navras-gold: #D4AF37;
+  --navras-ivory: #F5ECD7;
+  --navras-accent: #C49A3C;
+  --navras-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --navras-easing-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================
+   HERO SECTION BASE
+   ============================================ */
+
+.navras-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--navras-black);
+  overflow: hidden;
+  padding: clamp(20px, 5vh, 60px) 20px;
+}
+
+.navras-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(196, 154, 60, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ============================================
+   IMAGES CONTAINER & FAN LAYOUT
+   ============================================ */
+
+.navras-hero__images-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  perspective: 1200px;
+}
+
+/* Individual Rasa Image */
+.navras-hero__rasa-image {
+  position: absolute;
+  width: clamp(80px, 14vw, 200px);
+  height: clamp(100px, 18vw, 260px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  transform-origin: center;
+  opacity: 0;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.navras-hero__rasa-image:hover {
+  filter: brightness(1.1);
+}
+
+/* Start: All images from center */
+@keyframes rasaFanOut {
+  0% {
+    opacity: 0;
+    transform: 
+      translate(0, 0) 
+      scale(0.7) 
+      rotateY(0deg) 
+      rotateX(0deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: 
+      var(--final-position) 
+      var(--final-rotation) 
+      scale(1);
+  }
+}
+
+/* Left-side images */
+.rasa-img-1 {
+  --image-delay: 0ms;
+  --final-position: translate(-420px, 120px);
+  --final-rotation: rotateZ(-28deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+.rasa-img-2 {
+  --image-delay: 100ms;
+  --final-position: translate(-320px, 80px);
+  --final-rotation: rotateZ(-18deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+.rasa-img-3 {
+  --image-delay: 200ms;
+  --final-position: translate(-200px, 40px);
+  --final-rotation: rotateZ(-8deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+.rasa-img-4 {
+  --image-delay: 300ms;
+  --final-position: translate(-80px, 0px);
+  --final-rotation: rotateZ(-2deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+/* Center image */
+.rasa-img-5 {
+  --image-delay: 400ms;
+  --final-position: translate(0px, 0px);
+  --final-rotation: rotateZ(0deg);
+  z-index: 10;
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+/* Right-side images */
+.rasa-img-6 {
+  --image-delay: 300ms;
+  --final-position: translate(80px, 0px);
+  --final-rotation: rotateZ(2deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+.rasa-img-7 {
+  --image-delay: 200ms;
+  --final-position: translate(200px, 40px);
+  --final-rotation: rotateZ(8deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+.rasa-img-8 {
+  --image-delay: 100ms;
+  --final-position: translate(320px, 80px);
+  --final-rotation: rotateZ(18deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+.rasa-img-9 {
+  --image-delay: 0ms;
+  --final-position: translate(420px, 120px);
+  --final-rotation: rotateZ(28deg);
+  animation: rasaFanOut 0.9s var(--navras-easing-spring) var(--image-delay) forwards;
+}
+
+/* Image Placeholder (for demo) */
+.rasa-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.2) 0%, 
+    rgba(196, 154, 60, 0.1) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--navras-ivory);
+  font-family: 'Cinzel', serif;
+}
+
+.placeholder-number {
+  font-size: clamp(24px, 4vw, 48px);
+  font-weight: bold;
+  color: var(--navras-gold);
+}
+
+.placeholder-emotion {
+  font-size: clamp(12px, 2vw, 16px);
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* Image Label Below */
+.rasa-image-label {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(11px, 2vw, 14px);
+  color: var(--navras-ivory);
+  opacity: 0;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 300;
+  animation: fadeInLabel 0.5s ease 1.3s forwards;
+}
+
+@keyframes fadeInLabel {
+  to {
+    opacity: 0.7;
+  }
+}
+
+/* ============================================
+   NAME CARD ANIMATION
+   ============================================ */
+
+.navras-hero__name-card {
+  position: absolute;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+}
+
+.navras-hero__name-card.is-visible {
+  animation: nameCardAppear 0.7s var(--navras-easing-out) forwards;
+}
+
+@keyframes nameCardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.navras-hero__name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 700;
+  color: var(--navras-ivory);
+  margin: 0;
+  letter-spacing: clamp(4px, 1vw, 12px);
+  text-shadow: 
+    0 0 30px rgba(212, 175, 55, 0.3),
+    0 20px 50px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  line-height: 1;
+}
+
+/* ============================================
+   ACTOR TEXT WITH TYPEWRITER
+   ============================================ */
+
+.navras-hero__actor-text {
+  position: absolute;
+  z-index: 21;
+  top: 52%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: clamp(80px, 12vw, 150px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.95rem, 2.2vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--navras-gold);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.actor-text-content {
+  display: inline-block;
+  animation: actorTextFade 0.3s ease forwards;
+}
+
+@keyframes actorTextFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Blinking Cursor */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--navras-gold);
+  animation: cursorBlink 0.6s step-end infinite;
+  margin-left: 4px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.cursor.cursor-done {
+  animation: cursorFadeOut 0.4s ease 0.3s forwards;
+}
+
+@keyframes cursorFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+
+.navras-hero__scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: scrollIndicatorAppear 0.6s ease 0.3s forwards;
+  pointer-events: none;
+}
+
+@keyframes scrollIndicatorAppear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.scroll-indicator-line {
+  width: 1.5px;
+  height: 40px;
+  background: linear-gradient(180deg, 
+    var(--navras-gold) 0%, 
+    rgba(212, 175, 55, 0.2) 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  animation: scrollLineDraw 0.8s ease-in-out 0.4s infinite;
+}
+
+@keyframes scrollLineDraw {
+  0%, 100% {
+    transform: scaleY(0.5);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.scroll-indicator-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245, 236, 215, 0.6);
+  font-weight: 300;
+  animation: fadeInUp 0.6s ease 0.6s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navras-hero {
+    min-height: auto;
+    height: auto;
+    padding: 60px 16px 80px;
+  }
+
+  .navras-hero__images-container {
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  /* Adjust positions for mobile - closer together */
+  .rasa-img-1 {
+    --final-position: translate(-260px, 100px);
+  }
+
+  .rasa-img-2 {
+    --final-position: translate(-190px, 70px);
+  }
+
+  .rasa-img-3 {
+    --final-position: translate(-120px, 30px);
+  }
+
+  .rasa-img-4 {
+    --final-position: translate(-50px, 0px);
+  }
+
+  .rasa-img-5 {
+    --final-position: translate(0px, 0px);
+  }
+
+  .rasa-img-6 {
+    --final-position: translate(50px, 0px);
+  }
+
+  .rasa-img-7 {
+    --final-position: translate(120px, 30px);
+  }
+
+  .rasa-img-8 {
+    --final-position: translate(190px, 70px);
+  }
+
+  .rasa-img-9 {
+    --final-position: translate(260px, 100px);
+  }
+
+  /* Reduce tilt on mobile */
+  .rasa-img-1 { --final-rotation: rotateZ(-20deg); }
+  .rasa-img-2 { --final-rotation: rotateZ(-12deg); }
+  .rasa-img-3 { --final-rotation: rotateZ(-6deg); }
+  .rasa-img-4 { --final-rotation: rotateZ(-1deg); }
+  .rasa-img-6 { --final-rotation: rotateZ(1deg); }
+  .rasa-img-7 { --final-rotation: rotateZ(6deg); }
+  .rasa-img-8 { --final-rotation: rotateZ(12deg); }
+  .rasa-img-9 { --final-rotation: rotateZ(20deg); }
+
+  .navras-hero__name {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+
+  .navras-hero__name-card {
+    margin-top: 40px;
+  }
+
+  .navras-hero__actor-text {
+    margin-top: clamp(40px, 8vw, 80px);
+  }
+
+  .rasa-image-label {
+    bottom: -28px;
+    font-size: 11px;
+  }
+
+  .navras-hero__scroll-indicator {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navras-hero {
+    padding: 50px 12px 70px;
+  }
+
+  .navras-hero__images-container {
+    flex-direction: column;
+  }
+
+  /* Further compress on small phones */
+  .rasa-img-1 {
+    --final-position: translate(-180px, 90px);
+    --final-rotation: rotateZ(-16deg);
+  }
+
+  .rasa-img-2 {
+    --final-position: translate(-130px, 60px);
+    --final-rotation: rotateZ(-10deg);
+  }
+
+  .rasa-img-3 {
+    --final-position: translate(-80px, 25px);
+    --final-rotation: rotateZ(-5deg);
+  }
+
+  .rasa-img-4 {
+    --final-position: translate(-35px, 0px);
+    --final-rotation: rotateZ(-1deg);
+  }
+
+  .rasa-img-6 {
+    --final-position: translate(35px, 0px);
+    --final-rotation: rotateZ(1deg);
+  }
+
+  .rasa-img-7 {
+    --final-position: translate(80px, 25px);
+    --final-rotation: rotateZ(5deg);
+  }
+
+  .rasa-img-8 {
+    --final-position: translate(130px, 60px);
+    --final-rotation: rotateZ(10deg);
+  }
+
+  .rasa-img-9 {
+    --final-position: translate(180px, 90px);
+    --final-rotation: rotateZ(16deg);
+  }
+
+  .placeholder-number {
+    font-size: 28px;
+  }
+
+  .placeholder-emotion {
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY & UTILITIES
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .navras-hero__rasa-image,
+  .navras-hero__name-card,
+  .navras-hero__actor-text,
+  .navras-hero__scroll-indicator {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body.animation-done {
+  /* Hook for further interactions after animations complete */
+  --animation-state: complete;
+}

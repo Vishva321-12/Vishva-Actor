@@ -1,0 +1,24 @@
+
+> vishva-actor-react@0.1.0 start
+> react-scripts start
+
+Attempting to bind to HOST environment variable: localhost
+If this was unintentional, check that you haven't mistakenly set it in your shell.
+Learn more here: https://cra.link/advanced-config
+
+Starting the development server...
+
+Compiled successfully!
+
+You can now view vishva-actor-react in the browser.
+
+  http://localhost:3002
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
